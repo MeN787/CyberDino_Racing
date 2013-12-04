@@ -13,6 +13,9 @@ public class EnemyAI : MonoBehaviour {
 	
 	public float turning = 1.6F; // Variable that adjusts the turning speed or the Vector 3 Lerp.
 	
+	private MotionController player; // Variable that allows access to the MotionController Script on the player car.
+	private float oldMaxSpeed; // Old max speed to determine ai max speed.
+	
 	private MotionController controller; // Class reference to the MotionController.
 	
 	// Private Variables the determine direction of movement.
@@ -23,7 +26,9 @@ public class EnemyAI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<MotionController>(); // Gets access to the MotionController script.
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<MotionController>();
 		
+		oldMaxSpeed = controller.maxspeed;
 		currentDirection = transform.forward; // Sets current direction to infront of the unit on the z axis.
 		targetWaypoint = 0;	// Sets target waypoint to the first in the list.
 	}
@@ -47,6 +52,17 @@ public class EnemyAI : MonoBehaviour {
 			if (targetWaypoint >= waypoints.Length) {
 				targetWaypoint = 0;
 			}
+		}
+		
+		// If the player is too far behind or infront of the enemy it will adjust the speed to keep them closer to the player unit.
+		if (controller.racePosition >= player.racePosition + 4){
+			controller.maxspeed = oldMaxSpeed * 0.8f;
+		}
+		else if (controller.racePosition <= player.racePosition - 2){
+			controller.maxspeed = oldMaxSpeed * 1.2f;
+		}
+		else {
+			controller.maxspeed = oldMaxSpeed;
 		}
 	}
 }
