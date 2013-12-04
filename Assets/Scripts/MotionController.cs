@@ -107,8 +107,6 @@ public class MotionController : MonoBehaviour {
 		//this.transform.Translate(new Vector3(-move,0,0) * Time.deltaTime); // Move forward/reverse
 		this.transform.Translate(new Vector3(0,0,move) * Time.deltaTime); // Move forward/reverse
 		this.transform.Rotate (0,turn,0); // Turn left/right
-		
-		
 	}
 	
 
