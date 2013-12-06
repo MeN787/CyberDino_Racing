@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour {
 	private float oldMaxSpeed; // Old max speed to determine ai max speed.
 	
 	private MotionController controller; // Class reference to the MotionController.
+	private EnemyAIMG enemyAIMG;
 	
 	// Private Variables the determine direction of movement.
 	private Vector3 targetDirection; // The point in the world that the unit wants to face.
@@ -31,6 +32,7 @@ public class EnemyAI : MonoBehaviour {
 		controller = GetComponent<MotionController>(); // Gets access to the MotionController script.
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<MotionController>();
 		playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<MeshCollider>();
+		enemyAIMG = GetComponentInChildren <EnemyAIMG>();
 		
 		oldMaxSpeed = controller.maxspeed;
 		currentDirection = transform.forward; // Sets current direction to infront of the unit on the z axis.
@@ -75,7 +77,7 @@ public class EnemyAI : MonoBehaviour {
 			if (aimTargets[i] = playerCollider){
 				float angle = Vector3.Angle(aimTargets[i].gameObject.transform.position - transform.position, transform.forward);
 				if (angle < threatAngle){
-					EnemyAIMG.AIFireMG();
+					enemyAIMG.AIFireMG();
 				}
 			}
 		}

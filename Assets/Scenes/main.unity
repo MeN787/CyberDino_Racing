@@ -1121,7 +1121,6 @@ MonoBehaviour:
   theProjectile: {fileID: 100000, guid: 62d8e49b248af4905a8a86cdcb3e02c1, type: 2}
   muzzlePosition:
   - {fileID: 1636908366}
-  threatAngle: 15
 --- !u!23 &788238567
 Renderer:
   m_ObjectHideFlags: 0
@@ -1506,6 +1505,7 @@ MonoBehaviour:
   - {fileID: 604244957}
   waypointRadius: 10
   turning: 1.60000002
+  threatAngle: 10
 --- !u!54 &998619330
 Rigidbody:
   m_ObjectHideFlags: 0
