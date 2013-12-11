@@ -1115,7 +1115,7 @@ MonoBehaviour:
   damage: 10
   reloadTime: 3
   firePauseTime: .0299999993
-  projectilesInClip: 38
+  projectilesInClip: 50
   numberOfClips: 0
   totalNumberOfClips: 500
   theProjectile: {fileID: 100000, guid: 62d8e49b248af4905a8a86cdcb3e02c1, type: 2}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   - {fileID: 604244957}
   waypointRadius: 10
   turning: 1.60000002
-  threatAngle: 10
+  threatAngle: 20
 --- !u!54 &998619330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2758,6 +2758,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2130423564}
+  - 114: {fileID: 2130423565}
   m_Layer: 0
   m_Name: Checkpoints
   m_TagString: Untagged
@@ -2787,3 +2788,15 @@ Transform:
   - {fileID: 1522477591}
   - {fileID: 604244957}
   m_Father: {fileID: 0}
+--- !u!114 &2130423565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130423563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6215968fad7f97647a85ad5fc296bae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartBeatRate: 1
